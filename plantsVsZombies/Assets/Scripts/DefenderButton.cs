@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DefenderButton : MonoBehaviour
+{
+    [SerializeField] Defender defenderPrefab;
+
+    private void OnMouseOver()
+    {
+//        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
+    private void OnMouseDown()
+    {
+        var buttons = FindObjectsOfType<DefenderButton>();
+        foreach (DefenderButton button in buttons)
+        {
+            button.GetComponent<SpriteRenderer>().color = new Color32(41,41,41,255);
+        }
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
+    }
+
+    private void OnMouseExit()
+    {
+        // gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+    }
+}
