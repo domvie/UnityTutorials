@@ -6,11 +6,6 @@ public class DefenderButton : MonoBehaviour
 {
     [SerializeField] Defender defenderPrefab;
 
-    private void OnMouseOver()
-    {
-//        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-    }
-
     private void OnMouseDown()
     {
         var buttons = FindObjectsOfType<DefenderButton>();
@@ -22,8 +17,4 @@ public class DefenderButton : MonoBehaviour
         FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
     }
 
-    private void OnMouseExit()
-    {
-        // gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
-    }
 }
