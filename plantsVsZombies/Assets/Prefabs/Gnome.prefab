@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 1860554335708528562}
   - component: {fileID: 1860554335708528565}
   - component: {fileID: 5981248253695525560}
+  - component: {fileID: -5760340584824659027}
   m_Layer: 0
   m_Name: Gnome
   m_TagString: Untagged
@@ -137,6 +138,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4524049121240558321, guid: c4daa5d99a2e84e4db2038b9015c08bb, type: 3}
   gun: {fileID: 787232551161645952}
+--- !u!114 &-5760340584824659027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860554335708528564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8bf2621fb52f9740a72d9f7999b4af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  deathVFX: {fileID: 1906222994913036, guid: 740c2b3187d56c341b8cb78e8aa925c5, type: 3}
 --- !u!1 &1860554336922350145
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +177,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860554336922350145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.172, y: -0.305, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0.14, z: 0}
   m_LocalScale: {x: -0.87457, y: 0.87457, z: 0.87457}
   m_Children:
   - {fileID: 5300311811432628553}

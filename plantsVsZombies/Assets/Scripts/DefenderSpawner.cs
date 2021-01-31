@@ -47,6 +47,5 @@ public class DefenderSpawner : MonoBehaviour
     private void SpawnDefender(Vector2 worldPos)
     {
         Defender newDefender = Instantiate(defender, worldPos, Quaternion.identity) as Defender;
-        Debug.Log(worldPos);
     }
 }

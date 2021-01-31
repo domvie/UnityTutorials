@@ -56,7 +56,6 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\CanvasScaler.cs" />
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Image.cs" />
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Toggle.cs" />
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\LayoutElement.cs" />
@@ -82,6 +81,7 @@
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Culling\RectangularVertexClipper.cs" />
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\EventSystem\EventInterfaces.cs" />
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Graphic.cs" />
+    <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\CanvasScaler.cs" />
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\MaterialModifiers\IMaterialModifier.cs" />
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\SetPropertyUtility.cs" />
     <Compile Include="D:\Games\Unity\2020.2.2f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.ugui\Runtime\UI\Core\Layout\AspectRatioFitter.cs" />
