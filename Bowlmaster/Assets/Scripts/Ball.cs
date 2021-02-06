@@ -8,10 +8,12 @@ public class Ball : MonoBehaviour
     Rigidbody rigidBody;
     AudioSource audioSource;
     public bool inPlay = false;
+    private Vector3 startPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        startPosition = transform.position;
         rigidBody = GetComponent<Rigidbody>();
         rigidBody.useGravity = false;
     }
@@ -23,6 +25,14 @@ public class Ball : MonoBehaviour
         rigidBody.velocity = velocity;
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
+    }
+
+    public void Reset() {
+        inPlay = false;
+        rigidBody.velocity = Vector3.zero;
+        rigidBody.angularVelocity = Vector3.zero;
+        rigidBody.useGravity = false;
+        transform.position = startPosition;
     }
 
 }
