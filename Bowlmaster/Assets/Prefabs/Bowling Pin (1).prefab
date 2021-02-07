@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standingThreshold: 0.1
+  distanceToRaise: 40
 --- !u!33 &3364220799191907027
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7503835652925248370}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 877602fcda41d424fbaf5ce9501ca2db, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4

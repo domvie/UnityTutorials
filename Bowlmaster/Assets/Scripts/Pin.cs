@@ -6,11 +6,14 @@ public class Pin : MonoBehaviour
 {
 
     public float standingThreshold = 0.1f;
+    public float distanceToRaise = 40f;
+
+    Rigidbody rigidBody;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -35,5 +38,20 @@ public class Pin : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void RaiseIfStanding()
+    {
+        if (IsStanding())
+        {
+            rigidBody.useGravity = false;
+            transform.Translate(new Vector3(0, distanceToRaise, 0), Space.World);
+        }
+    }
+
+    public void Lower()
+    {
+        transform.Translate(new Vector3(0, -distanceToRaise, 0), Space.World);
+        rigidBody.useGravity = true;
     }
 }

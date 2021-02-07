@@ -8,6 +8,7 @@ public class PinSetter : MonoBehaviour
     public int lastStandingCount = -1;
     public Text standingDisplay;
     public float distanceToRaise = 40f;
+    public GameObject pinSetPrefab;
 
     private Ball ball;
 
@@ -85,21 +86,18 @@ public class PinSetter : MonoBehaviour
     public void RaisePins() {
         // raise standing pins only by raiseDistance
         foreach (Pin pin in FindObjectsOfType<Pin>()) {
-            if (pin.IsStanding()) {
-                pin.transform.Translate(new Vector3(0, distanceToRaise, 0), Space.World);
-            }
+            pin.RaiseIfStanding();
         }
     }
 
     public void LowerPins() {
-        // foreach (Pin pin in FindObjectsOfType<Pin>()) {
-        //     if (pin.IsStanding()) {
-        //         pin.transform.Translate(new Vector3(0, distanceToRaise, 0));
-        //     }
-        // }
+        foreach (Pin pin in FindObjectsOfType<Pin>()) {
+            pin.Lower();
+        }
     }
 
     public void RenewPins() {
-        Debug.Log("makes new pins");
+        var newPins = Instantiate(pinSetPrefab);
+        newPins.transform.position += new Vector3(0, 50, 0);
     }
 }
