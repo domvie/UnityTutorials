@@ -7,6 +7,7 @@ public class PinSetter : MonoBehaviour
 {
     public int lastStandingCount = -1;
     public Text standingDisplay;
+    public float distanceToRaise = 40f;
 
     private Ball ball;
 
@@ -79,5 +80,26 @@ public class PinSetter : MonoBehaviour
         lastStandingCount = -1; // Indicates pins have settled and ball not back in box
         ballEnteredBox = false;
         standingDisplay.color = Color.green;
+    }
+
+    public void RaisePins() {
+        // raise standing pins only by raiseDistance
+        foreach (Pin pin in FindObjectsOfType<Pin>()) {
+            if (pin.IsStanding()) {
+                pin.transform.Translate(new Vector3(0, distanceToRaise, 0), Space.World);
+            }
+        }
+    }
+
+    public void LowerPins() {
+        // foreach (Pin pin in FindObjectsOfType<Pin>()) {
+        //     if (pin.IsStanding()) {
+        //         pin.transform.Translate(new Vector3(0, distanceToRaise, 0));
+        //     }
+        // }
+    }
+
+    public void RenewPins() {
+        Debug.Log("makes new pins");
     }
 }
