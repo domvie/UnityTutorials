@@ -851,6 +851,20 @@ Transform:
   m_Father: {fileID: 1480859856}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 58.316, y: -67.97, z: 85.049}
+--- !u!1 &772730094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2741088336332083424, guid: 24315c7d549b06a40ae2277db1b8d67b, type: 3}
+  m_PrefabInstance: {fileID: 2741088335918497169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!45 &772730095
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772730094}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 36ebb1f81aa054bd49704f3d17f62c4d, type: 2}
 --- !u!1 &827037396
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1299,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastStandingCount: -1
   standingDisplay: {fileID: 1391718322}
-  distanceToRaise: 40
   pinSetPrefab: {fileID: 8818503674887080988, guid: 2f2d9e70045578c438a0b6e13af8a67a, type: 3}
 --- !u!65 &1159005101
 BoxCollider:

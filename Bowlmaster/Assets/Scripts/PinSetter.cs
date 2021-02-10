@@ -7,7 +7,6 @@ public class PinSetter : MonoBehaviour
 {
     public int lastStandingCount = -1;
     public Text standingDisplay;
-    public float distanceToRaise = 40f;
     public GameObject pinSetPrefab;
 
     private Ball ball;
@@ -27,7 +26,7 @@ public class PinSetter : MonoBehaviour
         standingDisplay.text = CountStanding().ToString();
 
         if (ballEnteredBox) {
-            CheckStanding();
+            UpdateStandingCountAndSettle();
         }
     }
 
@@ -60,7 +59,7 @@ public class PinSetter : MonoBehaviour
         return numberStanding;
     }
 
-    void CheckStanding() {
+    void UpdateStandingCountAndSettle() {
         // Update the last standing count
         // call PinsHaveSettled() when they have
         int currentStanding = CountStanding();
