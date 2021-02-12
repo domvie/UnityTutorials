@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public Transform playSpawnPoints;
     public bool reSpawn = false;
+    public GameObject landingAreaPrefab;
 
     private Transform[] spawnPoints;
     private bool lastToggle = false;
@@ -33,5 +34,15 @@ public class Player : MonoBehaviour
     {
         int i = Random.Range(1, spawnPoints.Length);
         transform.position = spawnPoints[i].transform.position;
+    }
+
+    void OnFindClearArea ()
+    {
+        Invoke("DropFlare", 3f);
+    }
+
+    void DropFlare()
+    {
+        Instantiate(landingAreaPrefab, transform.position, transform.rotation);
     }
 }
