@@ -4,37 +4,71 @@ using UnityEngine;
 
 public class MyReplay : MonoBehaviour
 {
-    private const int bufferSize = 100;
+    private const int bufferSize = 10000;
     private MyKeyFrame[] keyFrames = new MyKeyFrame[bufferSize];
     private Rigidbody rigidBody;
+    private GameManager manager;
+    public int firstPlayBackFrame = 0;
+    public int frame = 0;
+    public bool playbackTooSoon = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        manager = FindObjectOfType<GameManager>();
         rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Record();
+        if (manager.recording)
+        {
+            Record();
+            if (Time.frameCount > bufferSize && playbackTooSoon)
+            {
+                playbackTooSoon = false;
+                firstPlayBackFrame = 0;
+            }
+        }
+        else
+        {
+            if (firstPlayBackFrame == 0 && Time.frameCount < bufferSize)
+            {
+                playbackTooSoon = true;
+                firstPlayBackFrame = Time.frameCount;
+            }
+            PlayBack();
+        }
     }
 
     void PlayBack()
     {
         rigidBody.isKinematic = true;
-        int frame = Time.frameCount % bufferSize;
-        print("reading frame: " + frame);
+        if (Time.frameCount > bufferSize && !playbackTooSoon)
+        {
+            frame = Time.frameCount % bufferSize;
+        } else
+        {
+            frame += 1;
+            if (playbackTooSoon && frame >= firstPlayBackFrame)
+            {
+                frame = 0;
+            }
+        }
+
+        // print("reading frame: " + frame);
         transform.position = keyFrames[frame].pos;
         transform.rotation = keyFrames[frame].rot;
     }
 
     private void Record()
     {
+
         rigidBody.isKinematic = false;
         int frame = Time.frameCount % bufferSize;
         float time = Time.time;
-        print("Writing frame " + frame);
+        // print("Writing frame " + frame);
 
         keyFrames[frame] = new MyKeyFrame(time, transform.position, transform.rotation);
     }
