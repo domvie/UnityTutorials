@@ -8,11 +8,14 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 30f;
     [SerializeField] float climbSpeed = 6f;
+    [SerializeField] Vector2 deathKick = new Vector2(25f, 25f);
 
     Rigidbody2D rigidBody;
     Animator animator;
-    Collider2D collider;
+    CapsuleCollider2D bodyCollider;
+    BoxCollider2D feet;
     float gravityScaleAtStart;
+    bool isAlive = true;
 
 
     // Start is called before the first frame update
@@ -20,17 +23,22 @@ public class Player : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();    
         animator = GetComponent<Animator>();
-        collider = GetComponent<Collider2D>();
+        bodyCollider = GetComponent<CapsuleCollider2D>();
+        feet = GetComponent<BoxCollider2D>();
         gravityScaleAtStart = rigidBody.gravityScale;  
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive) {
+            return;
+        }
         Run();
         FlipSprite();
         Jump();
         ClimbLadder();
+        Die();
     }
 
     private void Run() {
@@ -43,7 +51,7 @@ public class Player : MonoBehaviour
     }
 
     private void Jump() {
-        if (!collider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+        if (!feet.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
             return;
         }
 
@@ -53,8 +61,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Die() {
+        if(bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy", "Hazards"))) {
+            animator.SetTrigger("die");
+            rigidBody.velocity = deathKick;
+            isAlive = false;
+        }
+    }
+
     private void ClimbLadder() {
-        if(!collider.IsTouchingLayers(LayerMask.GetMask("Climbing"))) {
+        if(!feet.IsTouchingLayers(LayerMask.GetMask("Climbing"))) {
             animator.SetBool("climbing", false);
             rigidBody.gravityScale = gravityScaleAtStart;
             return;
@@ -74,4 +90,6 @@ public class Player : MonoBehaviour
             transform.localScale = new Vector2(Mathf.Sign(rigidBody.velocity.x), 1f);
         }
     }
+
+
 }
